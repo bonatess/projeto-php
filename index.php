@@ -27,11 +27,17 @@ $result = $conn->query($sql);
         <th></th>
     </thead>
         <?php 
-            while($dados = $result->fetch_assoc()){?>
+            while($dados = $result->fetch_assoc()){
+                $id = $dados['ID_BANDAS'];
+                ?>
+
      <tbody>
      <td><?php echo $dados['ID_BANDAS'];?></td>
-            <td><?php echo"<a href='http://localhost/projPHP/projeto-php/index.php/alterar.php'>Alterar</a>";?></td>
-            <td><?php echo"<a href='http://localhost/projPHP/projeto-php/index.php/excuir.php'>Excluir</a>";?></td>
+     <td><?php echo $dados['NOME_BANDAS'];?></td>
+     <td><?php echo $dados['DATA_CADASTRO'];?></td>
+
+            <td><?php echo"<a href='http://localhost/projPHP/projeto-php/Alterar.php?id=$id'>Alterar</a>";?></td>
+            <td><?php echo"<a href='http://localhost/projPHP/projeto-php/excluir.php?id=$id'>Excluir</a>";?></td>
 
      </tbody>
     <?php } ?>
